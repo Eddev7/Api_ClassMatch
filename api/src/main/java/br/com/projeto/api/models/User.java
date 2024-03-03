@@ -1,17 +1,28 @@
 package br.com.projeto.api.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="users")
 public class User {
     
     // atributos
-    private String identity;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id;
+
     private String name;
     private String email;
-    private String password;
+    private String password_Hash;
     private String type;
 
     // metodos Getters
-    public String getIdentity() {
-        return identity;
+    public String getId() {
+        return id;
     }
     public String getName() {
         return name;
@@ -19,16 +30,16 @@ public class User {
     public String getEmail() {
         return email;
     }
-    public String getPassword() {
-        return password;
+    public String getPassword_Hash() {
+        return password_Hash;
     }
     public String getType() {
         return type;
     }
 
     // metodos Setters
-    public void setIdentity(String identity) {
-        this.identity = identity;
+    public void setId(String id) {
+        this.id = id;
     }
     public void setName(String name) {
         this.name = name;
@@ -36,8 +47,8 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String password_Hash) {
+        this.password_Hash = password_Hash;
     }
     public void setType(String type) {
         this.type = type;
