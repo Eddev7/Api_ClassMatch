@@ -1,11 +1,13 @@
 package br.com.projeto.api.models;
 
+import org.checkerframework.common.aliasing.qual.Unique;
+
+import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-
 @Entity
 @Table(name="users")
 public class User {
@@ -15,9 +17,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NonNull
     private String name;
+    
+    @NonNull
+    @Unique
     private String email;
+    
+    @NonNull
     private String password_Hash;
+    
+    @NonNull
     private String type;
 
     // metodos Getters
