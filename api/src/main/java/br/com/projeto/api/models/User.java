@@ -13,7 +13,7 @@ public class User {
     // atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private int id;
 
     private String name;
     private String email;
@@ -21,7 +21,7 @@ public class User {
     private String type;
 
     // metodos Getters
-    public String getId() {
+    public int getId() {
         return id;
     }
     public String getName() {
@@ -38,7 +38,7 @@ public class User {
     }
 
     // metodos Setters
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
     public void setName(String name) {
@@ -47,7 +47,7 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setPassword(String password_Hash) {
+    public void setPassword_Hash(String password_Hash) {
         this.password_Hash = password_Hash;
     }
     public void setType(String type) {
