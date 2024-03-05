@@ -1,8 +1,6 @@
 package br.com.projeto.api.models;
 
-import org.checkerframework.common.aliasing.qual.Unique;
-
-import io.micrometer.common.lang.NonNull;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,17 +15,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NonNull
+    @Column(nullable=false, length=120)
     private String name;
     
-    @NonNull
-    @Unique
+    @Column(nullable=false, unique=true)
     private String email;
     
-    @NonNull
-    private String password_Hash;
+    @Column(name="password_Hash",nullable=false)
+    private String password;
     
-    @NonNull
+    @Column(nullable=false)
     private String type;
 
     // metodos Getters
@@ -40,8 +37,8 @@ public class User {
     public String getEmail() {
         return email;
     }
-    public String getPassword_Hash() {
-        return password_Hash;
+    public String getPassword() {
+        return password;
     }
     public String getType() {
         return type;
@@ -57,8 +54,8 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setPassword_Hash(String password_Hash) {
-        this.password_Hash = password_Hash;
+    public void setPassword(String password) {
+        this.password = password;
     }
     public void setType(String type) {
         this.type = type;
